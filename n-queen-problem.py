@@ -163,6 +163,7 @@ def main():
     print("Median: ", np.median(SuccessGen))
     print("Worse case: ", max(results[:8], key=lambda x:x["Generations Number"]))
     print("Best case: ", min(results[:8], key=lambda x:x["Generations Number"]))
+    
 
     ##Graph the convergence of the fitness
     ##The best and the worst case to make the convergence analysis
@@ -170,6 +171,7 @@ def main():
     resultsGenerationsFitness = []
     resultsGenerationsFitness.append(resultsSorted[0]['Fitness Gen'])
     resultsGenerationsFitness.append(resultsSorted[-1]['Fitness Gen'])
+    ##print(getBinaryBoard(resultsSorted[0]['board']))
     # Colors to use in the plot
     colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']  # azul, verde, rojo, cyan, magenta, amarillo, negro
     # Graph the convergence 
