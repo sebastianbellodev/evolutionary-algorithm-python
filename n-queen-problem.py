@@ -80,17 +80,28 @@ def setEvolution(population):
     populationNewGen = np.vstack((populationReduced, fitnessChilds))
     return populationNewGen
 
+def getBinaryBoard(board):
+    binary = np.zeros((BOARD_SIZE, BOARD_SIZE), dtype=int)
+    for i, queen in enumerate(board):
+        for j in range(len(binary)):
+            if j == queen:
+                binary[i][j] = 1
+    return binary
+
 def main():
     population = setPopulation()
     population = setPopulationFitness(population)
     for i in range(GENERATION_NUMBER):
         population = setEvolution(population)
         
-    populationSort = np.argsort(population[:,8]) 
-    population = population[populationSort]
-    solution = population[0][8]
-    print("Best board with", solution, "attacks")
-    if(solution == 0):
-        return print("Solution found", solution)
+    sortedPopulation= np.argsort(population[:,8]) 
+    population = population[sortedPopulation]
+    fitness = population[0][8]
+    print("Best board with", fitness, "attacks")
+    if(fitness == 0):
+        solution = np.delete(population[0], -1, axis=0)
+        board = getBinaryBoard(solution)
+        print("Solution found!")
+        print(board)
       
 main()
