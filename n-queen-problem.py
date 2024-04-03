@@ -151,7 +151,7 @@ def main():
         if i["Success"]:
             Success += 1
             SuccessGen.append(i["Generations Number"])
-            
+
     ## Execution stats
     print("Success number: ", Success)
     print("Success rate: ", Success/30)
@@ -167,8 +167,6 @@ def main():
     resultsGenerationsFitness = []
     resultsGenerationsFitness.append(resultsSorted[0]['Fitness Gen'])
     resultsGenerationsFitness.append(resultsSorted[-1]['Fitness Gen'])
-    print("Binary representation of the first solution:")
-    print(getBinaryBoard(resultsSorted[0]["board"][:8]))
     # Colors to use in the plot
     colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']  # blue, green, red, cyan, magenta, yellow, black
     # Graph the convergence 
